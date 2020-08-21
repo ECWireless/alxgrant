@@ -1,9 +1,9 @@
 
 const index = () => {
     return (
-        <div>
+        <p>
             Alx Photography
-        </div>
+        </p>
     )
 }
 

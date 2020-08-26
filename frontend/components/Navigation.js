@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import respondTo from './Breakpoints'
 
 // Components
-import { colors } from './theme'
+import { colors, shadows } from './theme'
 import { Container } from './Containers'
 import { ButtonMenu } from './Buttons'
 
@@ -56,6 +56,8 @@ const NavBar = styled.div`
     height: 7rem;
     width: 100%;
     background: ${colors.white};
+    z-index: 100;
+    box-shadow: ${shadows.navigation};
 
     ${respondTo.xs`
         height: 8rem;
@@ -70,6 +72,7 @@ const NavBar = styled.div`
     `}
 
     ${respondTo.lg`
+        box-shadow: none;
         height: 20rem;
     `}
 

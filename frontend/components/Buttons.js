@@ -138,6 +138,14 @@ const ButtonContainer = styled.div`
     flex-direction: column;
 	justify-content: center;
     transition: all .5s ease;
+    z-index: 101;
+
+    &:hover,
+    &:focus,
+    &:active {
+		background: ${colors.greyHover};
+        cursor: pointer;
+    }
 
     ${respondTo.xs`
         top: 1.2rem;
@@ -159,21 +167,6 @@ const ButtonContainer = styled.div`
     ${respondTo.lg`
         display: none;
     `}
-
-    &:hover {
-		background: ${colors.grey};
-        cursor: pointer;
-    }
-
-    &:focus {
-		background: ${colors.grey};
-        cursor: pointer;
-    }
-
-    &:active {
-		background: ${colors.grey};
-        cursor: pointer;
-    }
 `
 
 const ButtonMenuLine = styled.div`

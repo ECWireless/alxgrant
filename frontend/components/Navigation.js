@@ -8,12 +8,12 @@ import { colors, shadows } from './theme'
 import { Container } from './Containers'
 import { ButtonMenu } from './Buttons'
 
-const Navigation = () => {
+const Navigation = ({ setSidebar }) => {
     const router = useRouter()
 
     return (
         <NavBar>
-            <ButtonMenu />
+            <ButtonMenu setSidebar={setSidebar} />
             <NavBarContainer>
                 <Link href='/'>
                     <Logo>

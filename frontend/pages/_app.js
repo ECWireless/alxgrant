@@ -5,6 +5,7 @@ import '../styles.css'
 
 // Components
 import Navigation from '../components/Navigation'
+import Sidebar from '../components/Sidebar'
 
 export default function App({ Component, pageProps }) {
 	const [sidebar, setSidebar] = useState(false)
@@ -43,8 +44,8 @@ const Layout = ({ children, setSidebar, sidebar }) => {
     return(
         <div>
             <Navigation setSidebar={setSidebar} />
-			{/* <Backdrop onClick={() => setSidebar(false)} open={sidebar} />
-			<Sidebar sidebar={sidebar} setSidebar={setSidebar} /> */}
+			<Backdrop onClick={() => setSidebar(false)} open={sidebar} />
+			<Sidebar sidebar={sidebar} setSidebar={setSidebar} />
             {children}
 			{/* <Footer /> */}
         </div>

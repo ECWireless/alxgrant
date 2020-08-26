@@ -107,10 +107,10 @@ export const Button2 = styled.button`
         color: ${colors.white};
     `}
 `
-// onClick={() => setSidebar(true)}
-export const ButtonMenu = () => {
+
+export const ButtonMenu = ({ setSidebar }) => {
     return (
-        <ButtonContainer >
+        <ButtonContainer onClick={() => setSidebar(true)}>
             <Flex direction={'column'} justify={'space-between'}>
                 <Box3>
                     <ButtonMenuLine width={35} color={'white'} />

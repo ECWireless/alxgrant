@@ -129,7 +129,8 @@ export const ButtonMenu = () => {
 const ButtonContainer = styled.div`
     position: absolute;
     left: 2rem;
-    top: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     width: 50px;
     height: 50px;
     background: ${colors.white};
@@ -148,20 +149,17 @@ const ButtonContainer = styled.div`
     }
 
     ${respondTo.xs`
-        top: 1.2rem;
         left: 4rem;
         width: 55px;
         height: 55px;
     `}
 
     ${respondTo.sm`
-        top: 2rem;
         width: 60px;
         height: 60px;
     `}
 
     ${respondTo.md`
-        top: 4rem;
     `}
 
     ${respondTo.lg`

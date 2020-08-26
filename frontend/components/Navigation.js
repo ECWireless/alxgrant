@@ -58,6 +58,7 @@ const NavBar = styled.div`
     background: ${colors.white};
     z-index: 100;
     box-shadow: ${shadows.navigation};
+    position: relative;
 
     ${respondTo.xs`
         height: 8rem;

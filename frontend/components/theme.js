@@ -1,8 +1,9 @@
 export const colors = {
-    gold: '#035AA6',
+    gold: '#C69200',
     black: '#000',
     white: '#FFF',
     grey: '#FAFAFA',
+    greyHover: '#e0e0e0',
 }
 
 export const shadows = {

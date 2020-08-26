@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import '../styles.css'
 
 // Components
+import Navigation from '../components/Navigation'
 
 export default function App({ Component, pageProps }) {
 	const [sidebar, setSidebar] = useState(false)
@@ -41,7 +42,7 @@ export default function App({ Component, pageProps }) {
 const Layout = ({ children, setSidebar, sidebar }) => {
     return(
         <div>
-            {/* <Navigation setSidebar={setSidebar} /> */}
+            <Navigation setSidebar={setSidebar} />
 			{/* <Backdrop onClick={() => setSidebar(false)} open={sidebar} />
 			<Sidebar sidebar={sidebar} setSidebar={setSidebar} /> */}
             {children}

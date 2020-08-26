@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
-import respondTo from './Breakpoints'
 import { colors, shadows } from './theme'
+import respondTo from './Breakpoints'
+import { Box3 } from './Boxes'
+import { Flex } from './Containers'
 
 export const Button1 = styled.button`
     padding: 0 4rem;
@@ -104,4 +106,94 @@ export const Button2 = styled.button`
         background: ${colors.secondaryBlue};
         color: ${colors.white};
     `}
+`
+// onClick={() => setSidebar(true)}
+export const ButtonMenu = () => {
+    return (
+        <ButtonContainer >
+            <Flex direction={'column'} justify={'space-between'}>
+                <Box3>
+                    <ButtonMenuLine width={35} color={'white'} />
+                </Box3>
+                <Box3 marginTop={8}>
+                    <ButtonMenuLine width={35} color={'white'} />
+                </Box3>
+                <Box3 marginTop={8}>
+                    <ButtonMenuLine width={35} color={'white'} />
+                </Box3>
+            </Flex>
+        </ButtonContainer>
+    )
+}
+
+const ButtonContainer = styled.div`
+    position: absolute;
+    left: 2rem;
+    top: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: ${colors.white};
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
+    transition: all .5s ease;
+
+    ${respondTo.xs`
+        top: 1.2rem;
+        left: 4rem;
+        width: 55px;
+        height: 55px;
+    `}
+
+    ${respondTo.sm`
+        top: 2rem;
+        width: 60px;
+        height: 60px;
+    `}
+
+    ${respondTo.md`
+        top: 4rem;
+    `}
+
+    ${respondTo.lg`
+        display: none;
+    `}
+
+    &:hover {
+		background: ${colors.grey};
+        cursor: pointer;
+    }
+
+    &:focus {
+		background: ${colors.grey};
+        cursor: pointer;
+    }
+
+    &:active {
+		background: ${colors.grey};
+        cursor: pointer;
+    }
+`
+
+const ButtonMenuLine = styled.div`
+    background: ${colors.gold};
+
+    ${props => css`
+        width: ${props.width * .8}px;
+        height: 2px;
+        margin: 0 auto;
+
+        ${respondTo.xs`
+            width: ${props.width * .9}px;
+            height: 2px;
+            margin: 0 auto;
+        `}
+
+        ${respondTo.sm`
+            width: ${props.width}px;
+            height: 3px;
+            margin: 0 auto;
+        `}
+    `};
 `

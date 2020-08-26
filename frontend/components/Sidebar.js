@@ -22,8 +22,8 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                             <H2 style={{letterSpacing: '1px'}} uppercase color={colors.primaryBlue}>
                                 Alx
                             </H2>
-                            <P4 style={{letterSpacing: '1px'}} uppercase color={colors.primaryBlue}>
-                                Photography
+                            <P4 style={{letterSpacing: '1px'}} color={colors.primaryBlue}>
+                                photography
                             </P4>
                         </Flex>
                     </Link>
@@ -119,13 +119,17 @@ const CloseContainer = styled.div`
 	
 	p {
         position: absolute;
-        top: 38%;
+        top: 36%;
         left: 50%;
         line-height: 0;
         transform: translate(-50%, -50%);
 		color: ${colors.gold};
 		font-size: 5rem;
         font-weight: 100;
+
+        ${respondTo.sm`
+            top: 38%;
+        `}
 
         ${respondTo.md`
             top: 35%;

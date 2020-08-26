@@ -119,7 +119,7 @@ const CloseContainer = styled.div`
 	
 	p {
         position: absolute;
-        top: 36%;
+        top: 35%;
         left: 50%;
         line-height: 0;
         transform: translate(-50%, -50%);

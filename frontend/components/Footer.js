@@ -5,7 +5,7 @@ import respondTo from './Breakpoints'
 
 // Components
 import { colors } from './theme'
-import { Box2 } from './Boxes'
+import { Box2, Box3 } from './Boxes'
 import { Container, Flex } from './Containers'
 import { CustomLink } from './Links'
 import { P5 } from './Typography'
@@ -15,6 +15,7 @@ const Footer = () => {
         <Container>
             <FooterContainer>
                 <DesktopFooter />
+                <MobileFooter />
             </FooterContainer>
             <Flex align={'center'} justify={'center'}>
                 <EtsyLogo />
@@ -54,7 +55,7 @@ const DesktopFooter = () => {
             </CustomLink>
             <Dot />
             <CustomLink
-                href='https://parishdigital.com'
+                href='https://valtechcreative.com'
                 target='_blank' rel='noopener noreferrer'
                 color={colors.black}
             >
@@ -68,36 +69,44 @@ const DesktopFooter = () => {
 
 const MobileFooter = () => {
     return (
-        <Flex justify={'space-between'} align={'center'}>
+        <MobileFlex respond justify={'center'} align={'center'}>
             <CustomLink
                 href='https://parishdigital.com'
                 target='_blank' rel='noopener noreferrer'
                 color={colors.black}
             >
-                <P5 uppercase>
+                <P5 center uppercase>
                     Looking for corporate, marketing or industrial videos?
                 </P5>
             </CustomLink>
-            <Dot />
+            <Box3 marginTop={50} marginBottom={50}>
+                <Flex align={'center'} justify={'center'}>
+                    <Box2 marginRight={50}>
+                        <Dot />
+                    </Box2>
+                    <CustomLink
+                        href='mailto: alex@alxgrant.com'
+                        color={colors.black}
+                    >
+                        <P5 bold uppercase>
+                            Alex@alxgrant.com
+                        </P5>
+                    </CustomLink>
+                    <CustomLink
+                        href='tel: 724-713-0611'
+                        color={colors.black}
+                    >
+                        <P5 bold uppercase>
+                            724-713-0611
+                        </P5>
+                    </CustomLink>
+                    <Box2 marginLeft={50}>
+                        <Dot />
+                    </Box2>
+                </Flex>
+            </Box3>
             <CustomLink
-                href='mailto: alex@alxgrant.com'
-                color={colors.black}
-            >
-                <P5 bold uppercase>
-                    Alex@alxgrant.com
-                </P5>
-            </CustomLink>
-            <CustomLink
-                href='tel: 724-713-0611'
-                color={colors.black}
-            >
-                <P5 bold uppercase>
-                    724-713-0611
-                </P5>
-            </CustomLink>
-            <Dot />
-            <CustomLink
-                href='https://parishdigital.com'
+                href='https://valtechcreative.com'
                 target='_blank' rel='noopener noreferrer'
                 color={colors.black}
             >
@@ -105,7 +114,7 @@ const MobileFooter = () => {
                     Website powered by Valtech Creative
                 </P5>
             </CustomLink>
-        </Flex>
+        </MobileFlex>
     )
 }
 
@@ -119,10 +128,30 @@ const DesktopFlex = styled(Flex)`
     `}
 `
 
+const MobileFlex = styled(Flex)`
+    display: flex;
+
+    ${respondTo.lg`
+        display: none;
+    `}
+`
+
 const FooterContainer = styled.div`
     border-top: 2px solid ${colors.gold};
-    height: 10rem;
+    height: 22rem;
     padding-top: 2rem;
+
+    ${respondTo.sm`
+        height: 22rem;
+    `}
+
+    ${respondTo.md`
+        height: 24rem;
+    `}
+
+    ${respondTo.lg`
+        height: 10rem;
+    `}
 
     ${respondTo.xl`
         border-top: 3px solid ${colors.gold};
@@ -147,7 +176,12 @@ const EtsyLogo = styled.div`
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 5rem;
-    width: 10rem;
+    height: 4rem;
+    width: 8rem;
     margin-bottom: 5rem;
+
+    ${respondTo.md`
+        height: 5rem;
+        width: 10rem;
+    `}
 `

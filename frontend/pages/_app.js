@@ -6,6 +6,8 @@ import '../styles.css'
 // Components
 import Navigation from '../components/Navigation'
 import Sidebar from '../components/Sidebar'
+import Footer from '../components/Footer'
+import { Container } from '../components/Containers'
 
 export default function App({ Component, pageProps }) {
 	const [sidebar, setSidebar] = useState(false)
@@ -46,8 +48,10 @@ const Layout = ({ children, setSidebar, sidebar }) => {
             <Navigation setSidebar={setSidebar} />
 			<Backdrop onClick={() => setSidebar(false)} open={sidebar} />
 			<Sidebar sidebar={sidebar} setSidebar={setSidebar} />
-            {children}
-			{/* <Footer /> */}
+			<Container>
+            	{children}
+			</Container>
+			<Footer />
         </div>
     )
 }

@@ -276,6 +276,7 @@ export const P4 = styled.p`
     line-height: 20px;
     letter-spacing: .5px;
     font-family: 'Heebo', sans-serif;
+    font-weight: light;
 
     ${respondTo.xs`
     `}
@@ -299,6 +300,46 @@ export const P4 = styled.p`
 
     ${props => props.center && css`
         text-align: center;
+    `}
+
+    ${props => css`
+        color: ${props.color}
+    `}
+`
+
+export const P5 = styled.p`
+    font-size: 1.2rem;
+    line-height: 20px;
+    letter-spacing: .5px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: light;
+
+    ${respondTo.xs`
+    `}
+
+    ${respondTo.sm`
+        font-size: 1.2rem;
+    `}
+
+    ${respondTo.md`
+        font-size: 1.4rem;
+    `}
+
+    ${respondTo.xl`
+        font-size: 1.8rem;
+        line-height: 27px;
+    `}
+
+    ${props => props.uppercase && css`
+        text-transform: uppercase;
+    `}
+
+    ${props => props.center && css`
+        text-align: center;
+    `}
+
+    ${props => props.bold && css`
+        font-weight: bold;
     `}
 
     ${props => css`

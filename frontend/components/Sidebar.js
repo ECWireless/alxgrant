@@ -82,14 +82,8 @@ const SidebarContainer = styled.div`
         width: 30rem;
     `}
 
-    ${respondTo.xl`
-        width: 35rem;
-        transform: translateX(-40rem);
-
-        ${props => props.open && css`
-            transform: translateX(0rem);
-            box-shadow: none;
-        `}
+    ${respondTo.lg`
+        display: none;
     `}
 
 	${props => props.open && css`

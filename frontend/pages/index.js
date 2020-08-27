@@ -1,9 +1,15 @@
+import Head from 'next/head'
+import groq from 'groq'
+import client from '../client'
 
 const index = () => {
     return (
-        <p>
-            Alx Photography
-        </p>
+        <>
+            <Head>
+                <title>Alx Photography</title>
+            </Head>
+            <div style={{ height: '80rem' }}>Home Page</div>
+        </>
     )
 }
 

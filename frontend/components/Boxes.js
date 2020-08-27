@@ -63,6 +63,7 @@ export const Box2 = styled.div`
             margin-top: ${props.marginTop * .5}px;
             margin-bottom: ${props.marginBottom * .5}px;
             margin-left: ${props.marginLeft * .5}px;
+            margin-right: ${props.marginRight * .5}px;
             padding-top: ${props.paddingTop * .5}px;
             padding-bottom: ${props.paddingBottom * .5}px;
 
@@ -71,6 +72,7 @@ export const Box2 = styled.div`
                 margin-top: ${props.marginTop * .45}px;
                 margin-bottom: ${props.marginBottom * .45}px;
                 margin-left: ${props.marginLeft * .45}px;
+                margin-right: ${props.marginRight * .45}px;
                 padding-top: ${props.paddingTop * .45}px;
                 padding-bottom: ${props.paddingBottom * .45}px;
             `}
@@ -80,6 +82,7 @@ export const Box2 = styled.div`
                 margin-top: ${props.marginTop * .7}px;
                 margin-bottom: ${props.marginBottom * .7}px;
                 margin-left: ${props.marginLeft * .7}px;
+                margin-right: ${props.marginRight * .7}px;
                 padding-top: ${props.paddingTop * .7}px;
                 padding-bottom: ${props.paddingBottom * .7}px;
             `}
@@ -88,6 +91,7 @@ export const Box2 = styled.div`
                 margin-top: ${props.marginTop}px;
                 margin-bottom: ${props.marginBottom}px;
                 margin-left: ${props.marginLeft}px;
+                margin-right: ${props.marginRight}px;
                 padding-top: ${props.paddingTop}px;
                 padding-bottom: ${props.paddingBottom}px;
             `}

@@ -79,11 +79,9 @@ const MobileFooter = () => {
                     Looking for corporate, marketing or industrial videos?
                 </P5>
             </CustomLink>
-            <Box3 marginTop={50} marginBottom={50}>
-                <Flex align={'center'} justify={'center'}>
-                    <Box2 marginRight={50}>
+            <Box3 style={{ width: '100%'}} marginTop={50} marginBottom={50}>
+                <Flex style={{ width: '100%'}} align={'center'} justify={'space-between'}>
                         <Dot />
-                    </Box2>
                     <CustomLink
                         href='mailto: alex@alxgrant.com'
                         color={colors.black}
@@ -100,9 +98,7 @@ const MobileFooter = () => {
                             724-713-0611
                         </P5>
                     </CustomLink>
-                    <Box2 marginLeft={50}>
                         <Dot />
-                    </Box2>
                 </Flex>
             </Box3>
             <CustomLink

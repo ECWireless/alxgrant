@@ -3,10 +3,10 @@ import respondTo from '../components/Breakpoints'
 
 export const H1 = styled.h1`
     font-size: 2.8rem;
-    font-weight: 700;
+    font-weight: light;
     line-height: 35px;
     letter-spacing: 3px;
-    font-family: 'Overpass', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
 
     ${respondTo.xs`
         line-height: 40px;
@@ -46,10 +46,10 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
     font-size: 2.8rem;
-    font-weight: 700;
+    font-weight: 300;
     line-height: 35px;
     letter-spacing: 3px;
-    font-family: 'Overpass', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
 
     ${respondTo.xs`
         font-size: 3.5rem;
@@ -88,10 +88,10 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 300;
     line-height: 25px;
     letter-spacing: 2px;
-    font-family: 'Overpass', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
 
     ${respondTo.xs`
         font-size: 2.2rem;
@@ -129,10 +129,10 @@ export const H3 = styled.h3`
 
 export const H4 = styled.h4`
     font-size: 1.8rem;
-    font-weight: 400;
     line-height: 30px;
     letter-spacing: 1px;
-    font-family: 'Overpass', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
+    font-weight: 300;
 
     ${respondTo.sm`
         font-size: 2rem;
@@ -169,7 +169,8 @@ export const P1 = styled.p`
     font-size: 1.4rem;
     line-height: 20px;
     letter-spacing: 1px;
-    font-family: 'Heebo', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
+    font-weight: light;
 
     ${respondTo.xs`
         font-size: 1.6rem;
@@ -210,7 +211,8 @@ export const P2 = styled.p`
     font-size: 1.6rem;
     line-height: 20px;
     letter-spacing: .5px;
-    font-family: 'Heebo', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
+    font-weight: light;
 
     ${respondTo.sm`
         font-size: 1.8rem;
@@ -243,7 +245,8 @@ export const P3 = styled.p`
     font-size: 1.5rem;
     line-height: 20px;
     letter-spacing: .5px;
-    font-family: 'Heebo', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
+    font-weight: light;
 
     ${respondTo.sm`
         font-size: 1.6rem;
@@ -275,7 +278,7 @@ export const P4 = styled.p`
     font-size: 1.4rem;
     line-height: 20px;
     letter-spacing: .5px;
-    font-family: 'Heebo', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
     font-weight: light;
 
     ${respondTo.xs`
@@ -311,7 +314,7 @@ export const P5 = styled.p`
     font-size: 1.2rem;
     line-height: 20px;
     letter-spacing: .5px;
-    font-family: 'Heebo', sans-serif;
+    font-family: acumin-pro-condensed,sans-serif;
     font-weight: light;
 
     ${respondTo.xs`

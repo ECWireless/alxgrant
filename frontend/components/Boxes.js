@@ -5,7 +5,7 @@ export const Box1 = styled.div`
     ${props =>
         css`
             height: ${props.height};
-            width: ${props.width * .3}px;
+            width: ${props.width * .4}px;
             margin-top: ${props.marginTop * .4}px;
             margin-bottom: ${props.marginBottom * .4}px;
             margin-left: ${props.marginLeft * .4}px;
@@ -51,7 +51,8 @@ export const Box1 = styled.div`
                 padding-bottom: ${props.paddingBottom}px;
             `}
 
-            ${respondTo.lg`
+            ${respondTo.xl`
+                width: ${props.width * 1.4}px;
             `}
         `};
 `

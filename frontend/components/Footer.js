@@ -1,11 +1,9 @@
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import respondTo from './Breakpoints'
 
 // Components
 import { colors } from './theme'
-import { Box2, Box3 } from './Boxes'
+import { Box2 } from './Boxes'
 import { Container, Flex } from './Containers'
 import { CustomLink } from './Links'
 import { P5 } from './Typography'
@@ -79,7 +77,7 @@ const MobileFooter = () => {
                     Looking for corporate, marketing or industrial videos?
                 </P5>
             </CustomLink>
-            <Box3 style={{ width: '100%'}} marginTop={50} marginBottom={50}>
+            <Box2 style={{ width: '100%'}} marginTop={50} marginBottom={50}>
                 <Flex style={{ width: '100%'}} align={'center'} justify={'space-between'}>
                         <Dot />
                     <CustomLink
@@ -100,7 +98,7 @@ const MobileFooter = () => {
                     </CustomLink>
                         <Dot />
                 </Flex>
-            </Box3>
+            </Box2>
             <CustomLink
                 href='https://valtechcreative.com'
                 target='_blank' rel='noopener noreferrer'
@@ -134,7 +132,7 @@ const MobileFlex = styled(Flex)`
 
 const FooterContainer = styled.div`
     border-top: 2px solid ${colors.gold};
-    height: 22rem;
+    height: 18rem;
     padding-top: 2rem;
 
     ${respondTo.sm`
@@ -151,7 +149,7 @@ const FooterContainer = styled.div`
 
     ${respondTo.xl`
         border-top: 3px solid ${colors.gold};
-        height: 6rem;
+        height: 12rem;
         padding-top: 3rem;
     `}
 `

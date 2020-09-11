@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import styled from 'styled-components'
-import Fade from 'react-reveal/Fade';
+import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 import groq from 'groq'
 import client from '../client'
 import respondTo from '../components/Breakpoints'
@@ -10,9 +11,34 @@ import respondTo from '../components/Breakpoints'
 import { colors, shadows } from '../components/theme'
 import { Box1, Box2, Box3 } from '../components/Boxes'
 import { Container, Flex } from '../components/Containers'
+import PhotoGallery from '../components/PhotoGallery'
 import { H2, H4, P3 } from '../components/Typography'
 
+const photos = [
+    '/static/photo1.jpg',
+    '/static/photo2.jpg',
+]
+
 const index = () => {
+    const [gallery, setGallery] = useState(false)
+    const [galleryNumber, setGalleryNumber] = useState(0)
+
+    const toggleRightArrow = () => {
+        if (galleryNumber >= photos.length-1) {
+            setGalleryNumber(0)
+        } else {
+            setGalleryNumber(galleryNumber + 1)
+        }
+    }
+
+    const toggleLeftArrow = () => {
+        if (galleryNumber == 0) {
+            setGalleryNumber(photos.length-1)
+        } else {
+            setGalleryNumber(galleryNumber - 1)
+        }
+    }
+
     return (
         <>
             <Head>
@@ -24,17 +50,17 @@ const index = () => {
                         <Flex direction={'column'}>
                             <Box3 marginBottom={50}>
                                 <Fade ssrFadout>
-                                    <Photo />
+                                    <Photo onClick={() => setGallery(true)} />
                                 </Fade>
                             </Box3>
                             <Box3 marginBottom={50}>
                                 <Fade delay={200} ssrFadout>
-                                    <Photo />
+                                    <Photo onClick={() => setGallery(true)} />
                                 </Fade>
                             </Box3>
                             <Box3 marginBottom={50}>
                                 <Fade delay={400} ssrFadout>
-                                    <Photo />
+                                    <Photo onClick={() => setGallery(true)} />
                                 </Fade>
                             </Box3>
                         </Flex>
@@ -100,11 +126,34 @@ const index = () => {
                     </Flex>
                 </Box2>
             </Container>
+            <Backdrop onClick={() => setGallery(false)} open={gallery} />
+            {gallery && <PhotoGallery
+                photos={photos}
+                toggleLeftArrow={toggleLeftArrow} toggleRightArrow={toggleRightArrow}
+                galleryNumber={galleryNumber}
+            />}
         </>
     )
 }
 
 export default index
+
+const Backdrop = styled.div`
+	position: fixed;
+    top: 0;
+    left: 0;
+	height: 100vh;
+	width: 100%;
+	background: #000;
+	z-index: -1;
+	opacity: 0;
+	transition: all .5s ease;
+
+	${props => props.open && css`
+		z-index: 999;
+		opacity: .8;
+	`}
+`
 
 const Photo = styled.div`
     height: 15rem;

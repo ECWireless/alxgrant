@@ -271,6 +271,10 @@ export const P3 = styled.p`
         text-align: center;
     `}
 
+    ${props => props.bold && css`
+        font-weight: 600;
+    `}
+
     ${props => css`
         color: ${props.color}
     `}

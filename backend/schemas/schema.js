@@ -8,6 +8,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import blockContent from './blockContent'
 import home from './home'
 import realEstate from './realEstate'
+import artists from './artists'
+import prints from './prints'
 // import category from './category'
 // import post from './post'
 // import author from './author'
@@ -23,6 +25,8 @@ export default createSchema({
     // in the studio.
     home,
     realEstate,
+    artists,
+    prints,
     // post,
     // author,
     // category,

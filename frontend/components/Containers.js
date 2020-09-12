@@ -175,4 +175,16 @@ export const Flex = styled.div`
             flex-direction: row;
         `}
     `}
+
+    ${props => props.wrap && css`
+        flex-wrap: wrap;
+
+        ${respondTo.xs`
+            justify-content: center;
+        `}
+
+        ${respondTo.sm`
+            justify-content: flex-start;
+        `}
+    `}
 `

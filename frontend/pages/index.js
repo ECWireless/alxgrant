@@ -4,6 +4,8 @@ import Link from 'next/link'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import groq from 'groq'
+import BlockContent from '@sanity/block-content-to-react'
+import imageUrlBuilder from '@sanity/image-url'
 import client from '../client'
 import respondTo from '../components/Breakpoints'
 
@@ -14,14 +16,24 @@ import { Container, Flex } from '../components/Containers'
 import PhotoGallery from '../components/PhotoGallery'
 import { H2, H4, P3 } from '../components/Typography'
 
-const photos = [
-    '/static/photo1.jpg',
-    '/static/photo2.jpg',
-]
-
-const index = () => {
+const index = ({
+    homeHeading,
+    homeLink1,
+    homeLink2,
+    homeLink3,
+    homeBodyText,
+    homeImage1,
+    homeImage2,
+    homeImage3,
+}) => {
     const [gallery, setGallery] = useState(false)
     const [galleryNumber, setGalleryNumber] = useState(0)
+
+    const photos = [
+        urlFor(homeImage1),
+        urlFor(homeImage2),
+        urlFor(homeImage3),
+    ]
 
     const toggleRightArrow = () => {
         if (galleryNumber >= photos.length-1) {
@@ -50,24 +62,26 @@ const index = () => {
                         <Flex direction={'column'}>
                             <Box3 marginBottom={50}>
                                 <Fade ssrFadout>
-                                    <Photo onClick={() => setGallery(true)} />
+                                    <Photo style={{ backgroundImage: `url(${photos[0]})`}} onClick={() => setGallery(true)} />
                                 </Fade>
                             </Box3>
                             <Box3 marginBottom={50}>
                                 <Fade delay={200} ssrFadout>
-                                    <Photo onClick={() => setGallery(true)} />
+                                    <Photo style={{ backgroundImage: `url(${photos[1]})`}} onClick={() => setGallery(true)} />
                                 </Fade>
                             </Box3>
                             <Box3 marginBottom={50}>
                                 <Fade delay={400} ssrFadout>
-                                    <Photo onClick={() => setGallery(true)} />
+                                    <Photo style={{ backgroundImage: `url(${photos[2]})`}} onClick={() => setGallery(true)} />
                                 </Fade>
                             </Box3>
                         </Flex>
                         <Flex direction={'column'}>
                             <Box3 marginBottom={25}>
                                 <Fade ssrFadout>
-                                    <H2 color={colors.black} uppercase>Pittsburgh Photography</H2>
+                                    <H2 color={colors.black} uppercase>
+                                        {homeHeading}
+                                    </H2>
                                 </Fade>
                             </Box3>
                             <Fade delay={200} ssrFadout>
@@ -75,20 +89,26 @@ const index = () => {
                                     <Box2 marginRight={75}>
                                         <Link href='/real-estate'>
                                             <a style={{textDecoration: 'none'}}>
-                                                <H4 color={colors.gold} uppercase>Real Estate</H4>
+                                                <H4 color={colors.gold} uppercase>
+                                                    {homeLink1}
+                                                </H4>
                                             </a>
                                         </Link>
                                     </Box2>
                                     <Box2 marginRight={75}>
                                         <Link href='/artists'>
                                             <a style={{textDecoration: 'none'}}>
-                                                <H4 color={colors.gold} uppercase>For Artists</H4>
+                                                <H4 color={colors.gold} uppercase>
+                                                    {homeLink2}
+                                                </H4>
                                             </a>
                                         </Link>
                                     </Box2>
                                     <Link href='/prints'>
                                         <a style={{textDecoration: 'none'}}>
-                                            <H4 color={colors.gold} uppercase>Prints</H4>
+                                            <H4 color={colors.gold} uppercase>
+                                                {homeLink3}
+                                            </H4>
                                         </a>
                                     </Link>
                                 </Flex>
@@ -97,27 +117,9 @@ const index = () => {
                                 <Box1 width={700} marginTop={75}>
                                     <Box3 marginBottom={25}>
                                         <P3>
-                                            Welcome! My name is Alex Grant and I like hiking, dogs, talking, cooking, reading, and, of course, photography. I come from a family passionate about photography, nature, and exploring the great outdoors. Photography has always been a part of my life and I’m very grateful for the opportunity to be a professional Pittsburgh photographer.
-                                        </P3>
-                                    </Box3>
-                                    <Box3 marginBottom={25}>
-                                        <P3>
-                                            I am multi-faceted; I take a ton of corporate photography, headshots, product photography, and landscape photography. My specialty is photography for artists; photos of paintings and other 2D mediums, sculptures and other 3D mediums, and research photography. I also do Pittsburgh real estate photography!
-                                        </P3>
-                                    </Box3>
-                                    <Box3 marginBottom={25}>
-                                        <P3>
-                                            If you’d like to collaborate please reach out at alex@alxgrant.com or 724-713-0611. I look forward to working with you.
-                                        </P3>
-                                    </Box3>
-                                    <Box3 marginBottom={25}>
-                                        <P3>
-                                            I graduated from Ohio University with a specialty in Integrated Media and I am currently pursuing an MBA at Point Park University. I work full-time for Parish Digital, a video production company specializing in video for business.
-                                        </P3>
-                                    </Box3>
-                                    <Box3 marginBottom={50}>
-                                        <P3>
-                                            Full disclosure: I run my photography business in my free time, juggling a full-time job and grad school. Because of this I mostly schedule shoots on the weekends. That being said, I will always go the extra mile to complete your project on time. I have never missed a deadline. I just ask for your accommodation from time to time.
+                                            <BlockContent
+                                                blocks={homeBodyText}
+                                            />
                                         </P3>
                                     </Box3>
                                 </Box1>
@@ -136,7 +138,9 @@ const index = () => {
     )
 }
 
-export default index
+function urlFor(source) {
+    return imageUrlBuilder(client).image(source)
+}
 
 const Backdrop = styled.div`
 	position: fixed;
@@ -158,7 +162,6 @@ const Backdrop = styled.div`
 const Photo = styled.div`
     height: 15rem;
     width: 30rem;
-    background-image: url(/static/photo1.jpg);
     background-position: center;
     background-size: cover;
     border: 1px solid transparent;
@@ -181,3 +184,19 @@ const Photo = styled.div`
         cursor: pointer;
     }
 `
+
+index.getInitialProps = async () => {
+    return await client.fetch(groq`*[_type == "home" && slug.current == "v1"][0]{
+            homeHeading,
+            homeLink1,
+            homeLink2,
+            homeLink3,
+            homeBodyText,
+            homeImage1,
+            homeImage2,
+            homeImage3,
+        }
+    `)
+}
+
+export default index

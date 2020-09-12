@@ -2,8 +2,8 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -28,7 +28,7 @@ h3,
 h4,
 h5,
 h6,
-p,
+/* p, */
 blockquote,
 pre,
 a,
@@ -49,7 +49,7 @@ s,
 samp,
 small,
 strike,
-strong,
+/* strong, */
 sub,
 sup,
 tt,

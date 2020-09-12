@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.150.1",
+    "@sanity/image-url": "^0.140.19",
     "groq": "^1.150.1",
     "next": "^9.5.2",
     "react": "^16.13.1",

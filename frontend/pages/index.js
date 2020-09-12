@@ -14,7 +14,7 @@ import { colors, shadows } from '../components/theme'
 import { Box1, Box2, Box3 } from '../components/Boxes'
 import { Container, Flex } from '../components/Containers'
 import PhotoGallery from '../components/PhotoGallery'
-import { H2, H4, P3 } from '../components/Typography'
+import { H2, H4 } from '../components/Typography'
 
 const index = ({
     homeHeading,
@@ -34,6 +34,11 @@ const index = ({
         urlFor(homeImage2),
         urlFor(homeImage3),
     ]
+
+    const selectPhoto = (photoNumber) => {
+        setGallery(true)
+        setGalleryNumber(photoNumber)
+    }
 
     const toggleRightArrow = () => {
         if (galleryNumber >= photos.length-1) {
@@ -62,17 +67,17 @@ const index = ({
                         <Flex direction={'column'}>
                             <Box3 marginBottom={50}>
                                 <Fade ssrFadout>
-                                    <Photo style={{ backgroundImage: `url(${photos[0]})`}} onClick={() => setGallery(true)} />
+                                    <Photo style={{ backgroundImage: `url(${photos[0]})`}} onClick={() => selectPhoto(0)} />
                                 </Fade>
                             </Box3>
                             <Box3 marginBottom={50}>
                                 <Fade delay={200} ssrFadout>
-                                    <Photo style={{ backgroundImage: `url(${photos[1]})`}} onClick={() => setGallery(true)} />
+                                    <Photo style={{ backgroundImage: `url(${photos[1]})`}} onClick={() => selectPhoto(1)} />
                                 </Fade>
                             </Box3>
                             <Box3 marginBottom={50}>
                                 <Fade delay={400} ssrFadout>
-                                    <Photo style={{ backgroundImage: `url(${photos[2]})`}} onClick={() => setGallery(true)} />
+                                    <Photo style={{ backgroundImage: `url(${photos[2]})`}} onClick={() => selectPhoto(2)} />
                                 </Fade>
                             </Box3>
                         </Flex>
@@ -115,12 +120,12 @@ const index = ({
                             </Fade>
                             <Fade delay={400} ssrFadout>
                                 <Box1 width={700} marginTop={75}>
-                                    <Box3 marginBottom={50}>
-                                        <P3>
+                                    <Box3 marginBottom={75}>
+                                        <P3BlockStyle>
                                             <BlockContent
                                                 blocks={homeBodyText}
                                             />
-                                        </P3>
+                                        </P3BlockStyle>
                                     </Box3>
                                 </Box1>
                             </Fade>
@@ -183,6 +188,27 @@ const Photo = styled.div`
         box-shadow: none;
         cursor: pointer;
     }
+`
+
+const P3BlockStyle = styled.div`
+    font-size: 1.5rem;
+    line-height: 20px;
+    letter-spacing: .5px;
+    font-family: acumin-pro-condensed,sans-serif;
+    font-weight: light;
+
+    ${respondTo.sm`
+        font-size: 1.6rem;
+    `}
+
+    ${respondTo.md`
+        font-size: 1.8rem;
+    `}
+
+    ${respondTo.xl`
+        font-size: 3rem;
+        line-height: 38px;
+    `}
 `
 
 index.getInitialProps = async () => {

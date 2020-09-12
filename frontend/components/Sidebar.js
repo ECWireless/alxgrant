@@ -28,7 +28,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                         </Flex>
                     </Link>
                     <CloseContainer onClick={() => setSidebar(false)}>
-                        <p>&times;</p>
+                        <p style={{padding: 0, margin: 0}}>&times;</p>
                     </CloseContainer>
                 </Flex>
             </SidebarTop>

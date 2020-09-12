@@ -50,6 +50,8 @@ export const H2 = styled.h2`
     line-height: 35px;
     letter-spacing: 3px;
     font-family: acumin-pro-condensed,sans-serif;
+    margin: 0;
+    padding: 0;
 
     ${respondTo.xs`
         font-size: 3.5rem;
@@ -280,6 +282,8 @@ export const P4 = styled.p`
     letter-spacing: .5px;
     font-family: acumin-pro-condensed,sans-serif;
     font-weight: light;
+    margin: 0;
+    padding: 0;
 
     ${respondTo.xs`
     `}

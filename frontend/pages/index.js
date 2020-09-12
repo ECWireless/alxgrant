@@ -115,7 +115,7 @@ const index = ({
                             </Fade>
                             <Fade delay={400} ssrFadout>
                                 <Box1 width={700} marginTop={75}>
-                                    <Box3 marginBottom={25}>
+                                    <Box3 marginBottom={50}>
                                         <P3>
                                             <BlockContent
                                                 blocks={homeBodyText}

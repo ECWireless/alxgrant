@@ -69,7 +69,7 @@ const realEstate = ({
                         <Box3 width={660}>
                             <Flex wrap='true'>
                                 {photos.map((photo, index) => (
-                                    <Fade key={index} ssrFadout>
+                                    <Fade delay={100 * (index+1)} key={index} ssrFadout>
                                         <Photo style={{ backgroundImage: `url(${photo})`}} onClick={() => selectPhoto(index)} />
                                     </Fade>
                                 ))}
@@ -83,7 +83,7 @@ const realEstate = ({
                                     </H2>
                                 </Fade>
                             </Box3>
-                            <Fade delay={400} ssrFadout>
+                            <Fade delay={200} ssrFadout>
                                 <Box2 width={500}>
                                     <Box3 marginBottom={75}>
                                         <P3BlockStyle>

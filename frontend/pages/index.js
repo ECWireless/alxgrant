@@ -171,7 +171,7 @@ const Photo = styled.div`
     `}
 
     ${respondTo.xl`
-        height: 20rem;
+        height: 30rem;
         width: 70rem;
     `}
 

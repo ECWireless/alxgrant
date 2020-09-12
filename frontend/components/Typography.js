@@ -69,7 +69,7 @@ export const H2 = styled.h2`
     `}
 
     ${respondTo.xl`
-        font-size: 5.5rem;
+        font-size: 6.5rem;
     `}
 
     ${props => props.center && css`
@@ -147,7 +147,7 @@ export const H4 = styled.h4`
     `}
 
     ${respondTo.xl`
-        font-size: 3.2rem;
+        font-size: 3.6rem;
         line-height: 40px;
     `}
 
@@ -257,8 +257,8 @@ export const P3 = styled.p`
     `}
 
     ${respondTo.xl`
-        font-size: 2.4rem;
-        line-height: 25px;
+        font-size: 3rem;
+        line-height: 38px;
     `}
 
     ${props => props.uppercase && css`

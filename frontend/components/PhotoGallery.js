@@ -48,6 +48,7 @@ const Photo = styled.div`
     background-position: center;
     background-size: cover;
     box-shadow: ${shadows.card};
+    border: 2px solid ${colors.gold};
 
     ${respondTo.xs`
         height: 32rem;
@@ -128,7 +129,7 @@ const SVGRight = styled.svg`
     transition: all .3s ease;
 
     ${respondTo.xs`
-        left: 2rem;
+        right: 2rem;
         width: 4rem;
         height: 4rem;
     `}

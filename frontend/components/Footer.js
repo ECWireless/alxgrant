@@ -77,7 +77,7 @@ const MobileFooter = () => {
                     Looking for corporate, marketing or industrial videos?
                 </P5>
             </CustomLink>
-            <Box2 style={{ width: '100%'}} marginTop={50} marginBottom={50}>
+            <Box2 style={{ width: '100%'}} marginTop={15} marginBottom={15}>
                 <Flex style={{ width: '100%'}} align={'center'} justify={'space-between'}>
                         <Dot />
                     <CustomLink

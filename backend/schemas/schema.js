@@ -10,6 +10,7 @@ import home from './home'
 import realEstate from './realEstate'
 import artists from './artists'
 import prints from './prints'
+import gallery from './gallery'
 // import category from './category'
 // import post from './post'
 // import author from './author'
@@ -27,6 +28,7 @@ export default createSchema({
     realEstate,
     artists,
     prints,
+    gallery,
     // post,
     // author,
     // category,

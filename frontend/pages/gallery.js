@@ -81,7 +81,7 @@ const gallery = ({
     return (
         <>
             <Head>
-                <title>Photography for Artists | Alx Photography</title>
+                <title>Gallery | Alx Photography</title>
             </Head>
             <Container>
                 <Box2 marginTop={50} marginBottom={50}>

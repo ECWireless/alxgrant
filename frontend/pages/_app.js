@@ -24,15 +24,15 @@ export default function App({ Component, pageProps }) {
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="theme-color" content="#000000" />
-				{/* <meta
+				<meta
 				name="description"
-				content="Our focus is video for business. We’re a small video production team, but we’ve produced thousands of successful video projects for Pittsburgh-based, national, and international clients."
+				content="My name is Alex Grant and I like hiking, dogs, talking, cooking, reading, and, of course, photography. I come from a family passionate about photography, nature, and exploring the great outdoors. Photography has always been a part of my life and I’m very grateful for the opportunity to be a professional Pittsburgh photographer."
 				/>
-				<meta name="keywords" content="video, productions, pittsburgh, parish, digital, studio" />
+				<meta name="keywords" content="alex, grant, pittsburgh, photography, nature, professional, real estate, artists, prints, gallery" />
 				<meta name="robots" content="index, follow" />
 				<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 				<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-				<link rel="canonical" href="https://parishdigital.com/"></link> */}
+				{/* <link rel="canonical" href="https://alxgrant.com/"></link> */}
 			</Head>
 			
 			<Layout setSidebar={setSidebar} sidebar={sidebar}>

@@ -59,7 +59,7 @@ const index = ({
     return (
         <>
             <Head>
-                <title>Alx Photography</title>
+                <title>Alx Photography Test</title>
             </Head>
             <Container>
                 <Box2 marginTop={50} marginBottom={50}>

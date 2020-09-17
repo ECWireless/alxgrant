@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }) {
 				<meta name="robots" content="index, follow" />
 				<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 				<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-				{/* <link rel="canonical" href="https://alxgrant.com/"></link> */}
+				<link rel="canonical" href="https://alxgrant.com/"></link>
 			</Head>
 			
 			<Layout setSidebar={setSidebar} sidebar={sidebar}>

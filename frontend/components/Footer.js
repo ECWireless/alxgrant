@@ -16,7 +16,9 @@ const Footer = () => {
                 <MobileFooter />
             </FooterContainer>
             <Flex align={'center'} justify={'center'}>
-                <EtsyLogo />
+                <a href="https://www.etsy.com/shop/ALXphotography" target="_blank" rel="noopener noreferrer">
+                    <EtsyLogo />
+                </a>
             </Flex>
         </Container>
     )

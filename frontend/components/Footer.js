@@ -55,12 +55,12 @@ const DesktopFooter = () => {
             </CustomLink>
             <Dot />
             <CustomLink
-                href='https://valtechcreative.com'
+                href='https://coopallc.com'
                 target='_blank' rel='noopener noreferrer'
                 color={colors.black}
             >
                 <P5 uppercase>
-                    Website powered by Valtech Creative
+                    Website powered by Coopa LLC
                 </P5>
             </CustomLink>
         </DesktopFlex>
@@ -102,12 +102,12 @@ const MobileFooter = () => {
                 </Flex>
             </Box2>
             <CustomLink
-                href='https://valtechcreative.com'
+                href='https://coopallc.com'
                 target='_blank' rel='noopener noreferrer'
                 color={colors.black}
             >
                 <P5 uppercase>
-                    Website powered by Valtech Creative
+                    Website powered by Coopa LLC
                 </P5>
             </CustomLink>
         </MobileFlex>

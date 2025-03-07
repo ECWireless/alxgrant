@@ -92,7 +92,7 @@ const index = ({
                             <Fade delay={200} ssrFadout>
                                 <Flex>
                                     <Box2 marginRight={75}>
-                                        <Link href='/real-estate'>
+                                        <Link href='/weddings'>
                                             <a style={{textDecoration: 'none'}}>
                                                 <H4 color={colors.gold} uppercase>
                                                     {homeLink1}
@@ -101,7 +101,7 @@ const index = ({
                                         </Link>
                                     </Box2>
                                     <Box2 marginRight={75}>
-                                        <Link href='/artists'>
+                                        <Link href='/photography'>
                                             <a style={{textDecoration: 'none'}}>
                                                 <H4 color={colors.gold} uppercase>
                                                     {homeLink2}

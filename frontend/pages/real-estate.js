@@ -61,7 +61,7 @@ const realEstate = ({
     return (
         <>
             <Head>
-                <title>Real Estate | Alx Photography</title>
+                <title>Weddings | Alx Photography</title>
             </Head>
             <Container>
                 <Box2 marginTop={50} marginBottom={50}>

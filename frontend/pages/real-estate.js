@@ -191,7 +191,7 @@ const P3BlockStyle = styled.div`
 `
 
 realEstate.getInitialProps = async () => {
-    return await client.fetch(groq`*[_type == "realEstate" && slug.current == "v1"][0]{
+    return await client.fetch(groq`*[_type == "weddings" && slug.current == "v1"][0]{
             realEstateHeading,
             realEstateBodyText,
             realEstateImage1,

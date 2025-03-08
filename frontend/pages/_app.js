@@ -26,9 +26,9 @@ export default function App({ Component, pageProps }) {
 				<meta name="theme-color" content="#000000" />
 				<meta
 				name="description"
-				content="My name is Alex Grant and I like hiking, dogs, talking, cooking, reading, and, of course, photography. I come from a family passionate about photography, nature, and exploring the great outdoors. Photography has always been a part of my life and I’m very grateful for the opportunity to be a professional Pittsburgh photographer."
+				content="Pittsburgh based videographer and photographer."
 				/>
-				<meta name="keywords" content="alex, grant, pittsburgh, photography, nature, professional, real estate, artists, prints, gallery" />
+				<meta name="keywords" content="alex, grant, pittsburgh, photography, video, wedding video, videography" />
 				<meta name="robots" content="index, follow" />
 				<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 				<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />

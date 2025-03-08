@@ -61,7 +61,7 @@ const prints = ({
     return (
         <>
             <Head>
-                <title>Prints for Sale | Alx Photography</title>
+                <title>About | Alx Photography</title>
             </Head>
             <Container>
                 <Box2 marginTop={50} marginBottom={50}>
@@ -222,7 +222,7 @@ const EtsyLogo = styled.div`
 `
 
 prints.getInitialProps = async () => {
-    return await client.fetch(groq`*[_type == "prints" && slug.current == "v1"][0]{
+    return await client.fetch(groq`*[_type == "about" && slug.current == "v1"][0]{
             printsHeading,
             printsBodyText,
             printsImage1,

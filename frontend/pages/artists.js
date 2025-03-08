@@ -61,7 +61,7 @@ const artists = ({
     return (
         <>
             <Head>
-                <title>Photography for Testing | Alx Photography</title>
+                <title>Photography | Alx Photography</title>
             </Head>
             <Container>
                 <Box2 marginTop={50} marginBottom={50}>
@@ -191,7 +191,7 @@ const P3BlockStyle = styled.div`
 `
 
 artists.getInitialProps = async () => {
-    return await client.fetch(groq`*[_type == "artists" && slug.current == "v1"][0]{
+    return await client.fetch(groq`*[_type == "photography" && slug.current == "v1"][0]{
             artistsHeading,
             artistsBodyText,
             artistsImage1,

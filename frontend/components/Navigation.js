@@ -25,17 +25,17 @@ const Navigation = ({ setSidebar }) => {
                     <ul>
                         <Link href='/real-estate'>
                             <NavMenuItem active={router.pathname === '/real-estate' ? true : false}>
-                                Real estate photography
+                                Weddings
                             </NavMenuItem>
                         </Link>
                         <Link href='/artists'>
                             <NavMenuItem active={router.pathname === '/artists' ? true : false}>
-                                Photography for artists
+                                Photography
                             </NavMenuItem>
                         </Link>
                         <Link href='/prints'>
                             <NavMenuItem active={router.pathname === '/prints' ? true : false}>
-                                Prints for sale
+                                About
                             </NavMenuItem>
                         </Link>
                         <Link href='/gallery'>

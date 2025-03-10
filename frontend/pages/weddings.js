@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import styled, { css } from "styled-components";
 import Fade from "react-reveal/Fade";
 import groq from "groq";
@@ -10,25 +9,32 @@ import client from "../client";
 import respondTo from "../components/Breakpoints";
 
 import { colors, shadows } from "../components/theme";
-import { Box1, Box2, Box3 } from "../components/Boxes";
+import { Box2, Box3 } from "../components/Boxes";
 import { Container, Flex } from "../components/Containers";
 import PhotoGallery from "../components/PhotoGallery";
-import { H2, H4 } from "../components/Typography";
+import { H2 } from "../components/Typography";
 
-const index = ({
-  homeHeading,
-  homeLink1,
-  homeLink2,
-  homeLink3,
-  homeBodyText,
-  homeImage1,
-  homeImage2,
-  homeImage3,
+const Weddings = ({
+  realEstateHeading,
+  realEstateBodyText,
+  realEstateImage1,
+  realEstateImage2,
+  realEstateImage3,
+  realEstateImage4,
+  realEstateImage5,
+  realEstateImage6,
 }) => {
   const [gallery, setGallery] = useState(false);
   const [galleryNumber, setGalleryNumber] = useState(0);
 
-  const photos = [urlFor(homeImage1), urlFor(homeImage2), urlFor(homeImage3)];
+  const photos = [
+    urlFor(realEstateImage1),
+    urlFor(realEstateImage2),
+    urlFor(realEstateImage3),
+    urlFor(realEstateImage4),
+    urlFor(realEstateImage5),
+    urlFor(realEstateImage6),
+  ];
 
   const selectPhoto = (photoNumber) => {
     setGallery(true);
@@ -54,82 +60,39 @@ const index = ({
   return (
     <>
       <Head>
-        <title>Alx Photography</title>
+        <title>Weddings | Alx Photography</title>
       </Head>
       <Container>
         <Box2 marginTop={50} marginBottom={50}>
-          <Flex respondFlip justify={"space-between"} align={"center"}>
+          <Flex respondFlip justify={"space-between"} align={"flex-start"}>
+            <Box3 width={660}>
+              <Flex wrap="true">
+                {photos.map((photo, index) => (
+                  <Fade delay={100 * (index + 1)} key={index} ssrFadout>
+                    <Photo
+                      style={{ backgroundImage: `url(${photo})` }}
+                      onClick={() => selectPhoto(index)}
+                    />
+                  </Fade>
+                ))}
+              </Flex>
+            </Box3>
             <Flex direction={"column"}>
               <Box3 marginBottom={50}>
-                <Fade ssrFadout>
-                  <Photo
-                    style={{ backgroundImage: `url(${photos[0]})` }}
-                    onClick={() => selectPhoto(0)}
-                  />
-                </Fade>
-              </Box3>
-              <Box3 marginBottom={50}>
-                <Fade delay={200} ssrFadout>
-                  <Photo
-                    style={{ backgroundImage: `url(${photos[1]})` }}
-                    onClick={() => selectPhoto(1)}
-                  />
-                </Fade>
-              </Box3>
-              <Box3 marginBottom={50}>
-                <Fade delay={400} ssrFadout>
-                  <Photo
-                    style={{ backgroundImage: `url(${photos[2]})` }}
-                    onClick={() => selectPhoto(2)}
-                  />
-                </Fade>
-              </Box3>
-            </Flex>
-            <Flex direction={"column"}>
-              <Box3 marginBottom={25}>
                 <Fade ssrFadout>
                   <H2 color={colors.black} uppercase>
-                    {homeHeading}
+                    {realEstateHeading}
                   </H2>
                 </Fade>
               </Box3>
               <Fade delay={200} ssrFadout>
-                <Flex>
-                  <Box2 marginRight={75}>
-                    <Link href="/weddings">
-                      <a style={{ textDecoration: "none" }}>
-                        <H4 color={colors.gold} uppercase>
-                          {homeLink1}
-                        </H4>
-                      </a>
-                    </Link>
-                  </Box2>
-                  <Box2 marginRight={75}>
-                    <Link href="/photography">
-                      <a style={{ textDecoration: "none" }}>
-                        <H4 color={colors.gold} uppercase>
-                          {homeLink2}
-                        </H4>
-                      </a>
-                    </Link>
-                  </Box2>
-                  <Link href="/about">
-                    <a style={{ textDecoration: "none" }}>
-                      <H4 color={colors.gold} uppercase>
-                        {homeLink3}
-                      </H4>
-                    </a>
-                  </Link>
-                </Flex>
-              </Fade>
-              <Fade delay={400} ssrFadout>
-                <Box1 width={700} marginTop={75}>
+                <Box2 width={500}>
                   <Box3 marginBottom={75}>
                     <P3BlockStyle>
-                      <BlockContent blocks={homeBodyText} />
+                      <BlockContent blocks={realEstateBodyText} />
                     </P3BlockStyle>
                   </Box3>
-                </Box1>
+                </Box2>
               </Fade>
             </Flex>
           </Flex>
@@ -172,22 +135,36 @@ const Backdrop = styled.div`
 `;
 
 const Photo = styled.div`
-  height: 15rem;
+  height: 30rem;
   width: 30rem;
   background-position: center;
   background-size: cover;
   border: 1px solid transparent;
   box-shadow: ${shadows.card};
   transition: all 0.5s ease;
+  margin-bottom: 2rem;
 
   ${respondTo.xs`
-        height: 20rem;
-        width: 40rem;
+        height: 35rem;
+        width: 35rem;
     `}
 
-  ${respondTo.xl`
+  ${respondTo.sm`
+        height: 24rem;
+        width: 24rem;
+        margin-right: 2rem;
+    `}
+
+    ${respondTo.lg`
         height: 30rem;
-        width: 70rem;
+        width: 30rem;
+    `}
+
+    ${respondTo.xl`
+        height: 30rem;
+        width: 30rem;
+        margin-right: 3rem;
+        margin-bottom: 3rem;
     `}
 
     &:hover {
@@ -218,18 +195,18 @@ const P3BlockStyle = styled.div`
     `}
 `;
 
-index.getInitialProps = async () => {
-  return await client.fetch(groq`*[_type == "home" && slug.current == "v1"][0]{
-        homeHeading,
-        homeLink1,
-        homeLink2,
-        homeLink3,
-        homeBodyText,
-        homeImage1,
-        homeImage2,
-        homeImage3,
+Weddings.getInitialProps = async () => {
+  return await client.fetch(groq`*[_type == "realEstate" && slug.current == "v1"][0]{
+        realEstateHeading,
+        realEstateBodyText,
+        realEstateImage1,
+        realEstateImage2,
+        realEstateImage3,
+        realEstateImage4,
+        realEstateImage5,
+        realEstateImage6,
       }
   `);
 };
 
-export default index;
+export default Weddings;

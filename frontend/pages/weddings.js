@@ -27,22 +27,37 @@ const Weddings = ({
   const [gallery, setGallery] = useState(false);
   const [galleryNumber, setGalleryNumber] = useState(0);
 
-  const photos = [
-    urlFor(realEstateImage1),
-    urlFor(realEstateImage2),
-    urlFor(realEstateImage3),
-    urlFor(realEstateImage4),
-    urlFor(realEstateImage5),
-    urlFor(realEstateImage6),
-  ];
+  import { useState } from "react";
+import Head from "next/head";
+import styled, { css } from "styled-components";
+import Fade from "react-reveal/Fade";
+import groq from "groq";
+import BlockContent from "@sanity/block-content-to-react";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../client";
+import respondTo from "../components/Breakpoints";
 
-  const selectPhoto = (photoNumber) => {
+import { colors, shadows } from "../components/theme";
+import { Box2, Box3 } from "../components/Boxes";
+import { Container, Flex } from "../components/Containers";
+import Vimeo from "@u-wave/react-vimeo"; // Import Vimeo component
+import { H2 } from "../components/Typography";
+
+const Weddings = ({
+  realEstateHeading,
+  realEstateBodyText,
+  vimeoVideoIds, // Update the props to include Vimeo video IDs
+}) => {
+  const [gallery, setGallery] = useState(false);
+  const [galleryNumber, setGalleryNumber] = useState(0);
+
+  const selectVideo = (videoNumber) => {
     setGallery(true);
-    setGalleryNumber(photoNumber);
+    setGalleryNumber(videoNumber);
   };
 
   const toggleRightArrow = () => {
-    if (galleryNumber >= photos.length - 1) {
+    if (galleryNumber >= vimeoVideoIds.length - 1) {
       setGalleryNumber(0);
     } else {
       setGalleryNumber(galleryNumber + 1);
@@ -51,7 +66,7 @@ const Weddings = ({
 
   const toggleLeftArrow = () => {
     if (galleryNumber == 0) {
-      setGalleryNumber(photos.length - 1);
+      setGalleryNumber(vimeoVideoIds.length - 1);
     } else {
       setGalleryNumber(galleryNumber - 1);
     }
@@ -67,12 +82,11 @@ const Weddings = ({
           <Flex respondFlip justify={"space-between"} align={"flex-start"}>
             <Box3 width={660}>
               <Flex wrap="true">
-                {photos.map((photo, index) => (
+                {vimeoVideoIds.map((videoId, index) => (
                   <Fade delay={100 * (index + 1)} key={index} ssrFadout>
-                    <Photo
-                      style={{ backgroundImage: `url(${photo})` }}
-                      onClick={() => selectPhoto(index)}
-                    />
+                    <VideoContainer onClick={() => selectVideo(index)}>
+                      <Vimeo video={videoId} />
+                    </VideoContainer>
                   </Fade>
                 ))}
               </Flex>
@@ -100,8 +114,8 @@ const Weddings = ({
       </Container>
       <Backdrop onClick={() => setGallery(false)} open={gallery} />
       {gallery && (
-        <PhotoGallery
-          photos={photos}
+        <VimeoGallery
+          videoIds={vimeoVideoIds}
           toggleLeftArrow={toggleLeftArrow}
           toggleRightArrow={toggleRightArrow}
           galleryNumber={galleryNumber}
@@ -110,6 +124,105 @@ const Weddings = ({
     </>
   );
 };
+
+const VimeoGallery = ({ videoIds, toggleLeftArrow, toggleRightArrow, galleryNumber }) => (
+  <GalleryContainer>
+    <button onClick={toggleLeftArrow}>Left</button>
+    <Vimeo video={videoIds[galleryNumber]} />
+    <button onClick={toggleRightArrow}>Right</button>
+  </GalleryContainer>
+);
+
+const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #000;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.5s ease;
+
+  ${(props) =>
+    props.open &&
+    css`
+      z-index: 999;
+      opacity: 0.8;
+    `}
+`;
+
+const VideoContainer = styled.div`
+  height: 30rem;
+  width: 30rem;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid transparent;
+  box-shadow: ${shadows.card};
+  transition: all 0.5s ease;
+  margin-bottom: 2rem;
+
+  ${respondTo.xs`
+        height: 35rem;
+        width: 35rem;
+    `}
+
+  ${respondTo.sm`
+        height: 24rem;
+        width: 24rem;
+        margin-right: 2rem;
+    `}
+
+    ${respondTo.lg`
+        height: 30rem;
+        width: 30rem;
+    `}
+
+    ${respondTo.xl`
+        height: 30rem;
+        width: 30rem;
+        margin-right: 3rem;
+        margin-bottom: 3rem;
+    `}
+
+    &:hover {
+    border: 1px solid ${colors.gold};
+    box-shadow: none;
+    cursor: pointer;
+  }
+`;
+
+const P3BlockStyle = styled.div`
+  font-size: 1.5rem;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  font-family: acumin-pro-condensed, sans-serif;
+  font-weight: light;
+
+  ${respondTo.sm`
+        font-size: 1.6rem;
+    `}
+
+  ${respondTo.md`
+        font-size: 1.8rem;
+    `}
+
+    ${respondTo.xl`
+        font-size: 3rem;
+        line-height: 38px;
+    `}
+`;
+
+Weddings.getInitialProps = async () => {
+  return await client.fetch(groq`*[_type == "realEstate" && slug.current == "v1"][0]{
+        realEstateHeading,
+        realEstateBodyText,
+        vimeoVideoIds,
+      }
+  `);
+};
+
+export default Weddings;
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
